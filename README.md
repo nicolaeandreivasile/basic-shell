@@ -11,45 +11,29 @@ The program will run as following:
 	- **make clean**: removes .class files;
 
 ## Commands
-*ls [path]*
-	- lists the files within the current directory if no path is given as argument, or the files within the given directory; if the given directory isn't valid, an error will be returned;
-        - -R: lists the tree structure of the file system in a depth-first manner, beginning with the current directory, or the given directory if path is specified; the files on each level of the tree with be be chosen in a lexicographic order;
+#### *ls [path]*
+Lists the files within the current directory if no path is given as argument, or the files within the given directory; if the given directory isn't valid, an error will be returned;
+- -R: lists the tree structure of the file system in a depth-first manner, beginning with the current directory, or the given directory if path is specified; the files on each level of the tree with be be chosen in a lexicographic order;
 
-###
-*pwd*
-	- return the absolute path of the current directory;
+#### *pwd*
+Returns the absolute path of the current directory;
 
-        - cd [path]
-            -> sets the current folder to the given directory; if the argument isn't 
-          a valid directory, an error will be returned;
+#### *cd [path]*
+Sets the current folder to the given directory; if the argument isn't a valid directory, an error will be returned;
 
-        - cp source destination
-            -> copies the source file in the destination directory; if the source file
-          is not valid or it's missing, an error will be returned; if the destination 
-          directory isn't valid, it's missing or on it already exists a file with the 
-          same name, an error will be returned;
+#### *cp source destination*
+Copies the source file in the destination directory; if the source file is not valid or it's missing, an error will be returned; if the destination directory isn't valid, it's missing or on it already exists a file with the same name, an error will be returned;
 
-        - mv source destination
-            -> moves the source file in the destination directory; if the source file
-          is not valid or it's missing, an error will be returned; if the destination 
-          directory isn't valid, it's missing or on it already exists a file with the 
-          same name, an error will be returned;
-            -> if the source is aa sub-tree that includes the current directory, the 
-          new current directory will be changed as well, accordingly with the new 
-          current directory sub-tree.
+#### *mv source destination*
+Moves the source file in the destination directory; if the source file is not valid or it's missing, an error will be returned; if the destination directory isn't valid, it's missing or on it already exists a file with the same name, an error will be returned; if the source is a sub-tree that includes the current directory, the new current directory will be changed as well, accordingly with the new current directory sub-tree.
 
-        - rm path
-            -> removes the given file; if the file isn't valid or it's missing, an 
-          error will be returned;
-            -> if the current directory path includes the argument path, no actions 
-          will be executed;
+#### *rm path*
+Removes the given file; if the file isn't valid or it's missing, an error will be returned; if the current directory path includes the argument path, no actions will be executed;
 
-        - touch file
-            -> creates a new file with the given path; if the path isn't valid, an 
-          error will be returned; if the file already exists in the given path, an 
-          error will be returned;
+#### *touch file*
+Creates a new file with the given path; if the path isn't valid, an error will be returned; if the file already exists in the given path, an error will be returned;
 
-        - mkdir directory
+#### *mkdir directory*
             -> creates a new directory with the given path; if the path isn't valid, 
           an error will be returned; if the directory already exists in the given 
           path, an error will be returned;
