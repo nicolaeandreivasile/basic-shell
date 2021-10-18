@@ -1,7 +1,14 @@
 # Shell Simulator
 	
 ## Description
-This is an implementation of a simplified shell that works with a file system in an easy and intuitive manner. The file system is perceived as a tree structure, with the root directory on top (it is similar with the Linux file system structure).
+This is an implementation of a simplified shell that works with a file system in an easy and intuitive manner. The file system is perceived as a tree structure, with the root directory on top (it is similar with the Linux file system structure). The program uses design patterns such as: 
+- **Command Pattern**
+- **Singleton Pattern**
+- **Factory Pattern**. 
+
+####
+Each command is defined as a singleton object, which is being chosen at runtime accordingly through the Factory Pattern, and executed through Command Pattern. The paths to the given files or directories will be similar with those used in Linux. No path will end with "/", except the root directory. The output will be redirected in the output file and the errors in the errors file.
+
 
 ## Usage
 The program will run as following:
@@ -11,52 +18,40 @@ The program will run as following:
 	- **make clean**: removes .class files;
 
 ## Commands
-#### *ls [path]*
-Lists the files within the current directory if no path is given as argument, or the files within the given directory; if the given directory isn't valid, an error will be returned;
-- -R: lists the tree structure of the file system in a depth-first manner, beginning with the current directory, or the given directory if path is specified; the files on each level of the tree with be be chosen in a lexicographic order;
 
-#### *pwd*
-Returns the absolute path of the current directory;
+#### *- ls [path]*
+Lists the files within the current directory if no path is given as argument, or the files within the given directory. If the given directory isn't valid, an error is returned.
+- -R: lists the tree structure of the file system in a depth-first manner, beginning with the current directory, or the given directory if path is specified. The files on each level of the tree are chosen in lexicographic order;
 
-#### *cd [path]*
-Sets the current folder to the given directory; if the argument isn't a valid directory, an error will be returned;
+#### *- pwd*
+Returns the absolute path of the current directory.
 
-#### *cp source destination*
-Copies the source file in the destination directory; if the source file is not valid or it's missing, an error will be returned; if the destination directory isn't valid, it's missing or on it already exists a file with the same name, an error will be returned;
+#### *- cd [path]*
+Sets the current folder to the given directory. If the argument isn't a valid directory, an error is returned.
 
-#### *mv source destination*
-Moves the source file in the destination directory; if the source file is not valid or it's missing, an error will be returned; if the destination directory isn't valid, it's missing or on it already exists a file with the same name, an error will be returned; if the source is a sub-tree that includes the current directory, the new current directory will be changed as well, accordingly with the new current directory sub-tree.
+#### *- cp [source] [destination]*
+Copies the source file in the destination directory. If the source file is not valid or it's missing, an error will be returned. If the destination directory isn't valid, it's missing or on it already exists a file with the same name, an error is returned.
 
-#### *rm path*
-Removes the given file; if the file isn't valid or it's missing, an error will be returned; if the current directory path includes the argument path, no actions will be executed;
+#### *- mv [source] [destination]*
+Moves the source file in the destination directory. If the source file is not valid or it's missing, an error is returned. If the destination directory isn't valid, it's missing or in it already exists a file with the same name, an error is returned. If the source is a sub-tree that includes the current directory, the new current directory will be changed as well, accordingly with the new current directory sub-tree.
 
-#### *touch file*
-Creates a new file with the given path; if the path isn't valid, an error will be returned; if the file already exists in the given path, an error will be returned;
+#### *- rm [path]*
+Removes the given file. If the file isn't valid or it's missing, an error is returned. If the current directory path includes the argument path, no actions is executed.
 
-#### *mkdir directory*
-            -> creates a new directory with the given path; if the path isn't valid, 
-          an error will be returned; if the directory already exists in the given 
-          path, an error will be returned;
+#### *- touch [file]*
+Creates a new file with the given path. If the path isn't valid, an error is returned. If the file already exists in the given path, an error is returned.
 
-        - grep regex
-            -> it will be used with the ls command, delimited by a pipe ("|"); it will
-          restrain the output of the ls command only to those which match the regex;
+#### *- mkdir [directory]*
+Creates a new directory with the given path. If the path isn't valid, an error is returned. If the directory already exists in the given path, an error is returned.
 
-    The program uses design patterns such as: Command Pattern, Singleton Pattern and
-Factory Pattern. Each command is defined as a singleton object, which is being chosen
-at runtime accordingly through the Factory Pattern, and executed through Command 
-Pattern. The paths to the given files or directories will be similar with those used
-in Linux. No path will end with "/", except the root directory. The output will be
-redirected in the output file and the errors in the errors file.
+#### *- grep [regex]*
+It is used with the ls command, delimited by a pipe ("|"). It restrains the output of the ls command only to those which match the regex.
 
-    The input file will contain:
-        -> on each line it will be the command to be executed, with or without 
-      parameters;
+## Input
+On each line of the input file is the command to be executed, with or without parameters.
 
-    The output file will contain:
-        -> on each line it will be shown the number of the command, and for those 
-      which an output is returned, the output will be printed on the next line;
+## Output
+On each line of the output file is shown the number of the command, and for those which an output is returned, the output is printed on the next line.
 
-    The errors file will contain:
-        -> on each line it will be shown the number of the command, and for those 
-      which an error is returned, the error will be printed on the next line;
+## Errors
+On each of the errors file is shown the number of the command, and for those which an error is returned, the error is printed on the next line.
