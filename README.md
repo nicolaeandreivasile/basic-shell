@@ -32,9 +32,6 @@ Sets the current folder to the given directory. If the argument isn't a valid di
 #### *- cp [source] [destination]*
 Copies the source file in the destination directory. If the source file is not valid or it's missing, an error will be returned. If the destination directory isn't valid, it's missing or on it already exists a file with the same name, an error is returned.
 
-#### *- mv [source] [destination]*
-Moves the source file in the destination directory. If the source file is not valid or it's missing, an error is returned. If the destination directory isn't valid, it's missing or in it already exists a file with the same name, an error is returned. If the source is a sub-tree that includes the current directory, the new current directory will be changed as well, accordingly with the new current directory sub-tree.
-
 #### *- rm [path]*
 Removes the given file. If the file isn't valid or it's missing, an error is returned. If the current directory path includes the argument path, no actions is executed.
 
@@ -46,6 +43,10 @@ Creates a new directory with the given path. If the path isn't valid, an error i
 
 #### *- grep [regex]*
 It is used with the ls command, delimited by a pipe ("|"). It restrains the output of the ls command only to those which match the regex.
+
+#### *- mv [source] [destination]*
+Moves the source file in the destination directory. If the source file is not valid or it's missing, an error is returned. If the destination directory isn't valid, it's missing or in it already exists a file with the same name, an error is returned. If the source is a sub-tree that includes the current directory, the new current directory will be changed as well, accordingly with the new current directory sub-tree.
+
 
 ## Input
 On each line of the input file is the command to be executed, with or without parameters.
