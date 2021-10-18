@@ -11,8 +11,7 @@ Each command is defined as a singleton object, which is being chosen at runtime 
 
 
 ## Usage
-The program will run as following:
-1. compile and run from command promptusing given Makefile:
+Compile and run from command prompt using given Makefile:
 	- **make**: compiles .java files;
 	- **java -cp classes Main INPUT_PATH=enter_input_path OUTPUT_PATH=enter_out_path ERRORS_PATH=enter_errors_path**: executes the program;
 	- **make clean**: removes .class files;
